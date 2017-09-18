@@ -20,5 +20,7 @@
 /devices/platform/dwc_otg/usb*      auto         auto     defaults                                                                voldmanaged=usb:auto
 
 # zRAM
-/dev/block/zram0                    none         swap     defaults                                                                zramsize=268435456,zramstreams=2
+/dev/block/zram0                    none         swap     defaults                                                                zramsize=268435456
 
+# SWAP
+/dev/block/mmcblk0p20               none         swap     defaults                                                                defaults
