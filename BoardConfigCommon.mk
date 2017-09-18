@@ -20,7 +20,7 @@ TARGET_BOOTLOADER_BOARD_NAME := capri
 # Kernel
 TARGET_KERNEL_CONFIG := lineageos_galaxys2plus_defconfig
 TARGET_KERNEL_SOURCE := kernel/samsung/galaxys2plus-common
-BOARD_KERNEL_CMDLINE := console=ttyS0,115200n8 mem=832M@0xA2000000 androidboot.console=ttyS0 vc-cma-mem=0/176M@0xCB000000
+BOARD_KERNEL_CMDLINE := console=ttyS0,115200n8 mem=832M@0xA2000000 androidboot.console=ttyS0 vc-cma-mem=0/176M@0xCB000000  androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0xa2000000
 BOARD_KERNEL_PAGESIZE := 4096
 
@@ -63,6 +63,12 @@ BOARD_GLOBAL_CFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS -DCAPRI_HWC -DREFBASE_JB_MR1_C
 # CMHW
 BOARD_HARDWARE_CLASS := hardware/samsung/cmhw/ device/samsung/galaxys2plus-common/cmhw/
 
+# Audio
+AUDIO_FEATURE_ENABLED_MULTI_VOICE_SESSIONS := true
+AUDIO_FEATURE_ENABLED_SND_MONITOR := true
+BOARD_USES_ALSA_AUDIO := true
+BOARD_USES_GENERIC_AUDIO := true
+
 # RIL
 BOARD_RIL_CLASS := ../../../device/samsung/galaxys2plus-common/ril/
 
@@ -98,10 +104,15 @@ WIFI_DRIVER_MODULE_ARG              := "firmware_path=/system/etc/wifi/bcmdhd_st
 WIFI_BAND                           := 802_11_ABG
 
 # healthd
-BOARD_HAL_STATIC_LIBRARIES := libhealthd.capri
-WITH_CM_CHARGER := false
+#BOARD_HAL_STATIC_LIBRARIES := libhealthd.capri
+WITH_LINEAGE_CHARGER := false
+
+# Time
+BOARD_USES_QC_TIME_SERVICES := true
+WITH_LINEAGE_CHARGER := false
 
 # Charger
+WITH_LINEAGE_CHARGER := false
 BOARD_CHARGER_ENABLE_SUSPEND := true
 BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/power_supply/battery/batt_lp_charging
 
@@ -123,4 +134,8 @@ ANDROID_NO_TEST_CHECK := true
 
 
 # SELinux
-BOARD_SEPOLICY_DIRS += device/samsung/galaxys2plus-common/sepolicy
+#BOARD_SEPOLICY_DIRS += device/samsung/galaxys2plus-common/sepolicy
+
+TARGET_USES_GRALLOC1                  := true
+TARGET_USES_HWC2                      := true
+TARGET_USES_NEW_ION_API               := true

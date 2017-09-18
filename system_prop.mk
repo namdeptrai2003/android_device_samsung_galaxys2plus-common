@@ -7,6 +7,20 @@ PRODUCT_PROPERTY_OVERRIDES += \
     media.stagefright.legacyencoder=true \
     media.stagefright.less-secure=true
 
+# Something more
+persist.radio.sib16_support=1
+debug.mdpcomp.logs=0
+dev.pm.dyn_samplingrate=1
+persist.hwc.enable_vds=1
+persist.hwc.mdpcomp.enable=true
+persist.sys.storage_preload=1
+ro.data.large_tcp_window_size=true
+sys.disable_ext_animation=1
+persist.sys.wfd.virtual=0
+debug.egl.hw=1
+debug.sf.hw=1
+media.swhevccodectype=0
+
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
     rild.libpath=/system/lib/libbrcm_ril.so \
@@ -35,12 +49,18 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapgrowthlimit=56m
 
 # Disable ADB authentication
-ADDITIONAL_DEFAULT_PROPERTIES += \
-    ro.adb.secure=0 \
-    ro.secure=0
+#ADDITIONAL_DEFAULT_PROPERTIES += \
+    #ro.adb.secure=0 \
+    #ro.secure=0
+
+# Due to some graphic changes in the new Android, it will be better to turn it off
+debug.hwui.use_buffer_age=false
+
+# OMX properties
+persist.media.treble_omx=false
 
 # BG Tuning
 PRODUCT_PROPERTY_OVERRIDES += \
-ro.sys.fw.bg_apps_limit=8 \
+ro.sys.fw.bg_apps_limit=10 \
 ro.config.low_ram=true \
 persist.sys.force_highendgfx=true
