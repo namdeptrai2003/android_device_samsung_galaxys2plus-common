@@ -123,4 +123,4 @@ ANDROID_NO_TEST_CHECK := true
 
 
 # SELinux
-BOARD_SEPOLICY_DIRS += device/samsung/galaxys2plus-common/sepolicy
+#$BOARD_SEPOLICY_DIRS += device/samsung/galaxys2plus-common/sepolicy
