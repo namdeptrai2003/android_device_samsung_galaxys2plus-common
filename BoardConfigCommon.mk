@@ -132,6 +132,9 @@ WITHOUT_CHECK_API := true
 # Don't try to build and run all tests by default.
 ANDROID_NO_TEST_CHECK := true
 
+# Seccomp policy
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/seccomp_policy/mediacodec.policy:system/vendor/etc/seccomp_policy/mediacodec.policy
 
 # SELinux
 #BOARD_SEPOLICY_DIRS += device/samsung/galaxys2plus-common/sepolicy
